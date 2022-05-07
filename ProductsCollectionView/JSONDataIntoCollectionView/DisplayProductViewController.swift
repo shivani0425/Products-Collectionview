@@ -168,18 +168,18 @@ class DisplayProductViewController: UIViewController {
                 guard
                     let titleCStr = sqlite3_column_text(readStatement, 1),
                     let descriptionCStr = sqlite3_column_text(readStatement, 3),
-                    let categoryCStr = sqlite3_column_text(readStatement, 4)
-                        //  let image = sqlite3_column_blob(readStatement, 5)
+                    let categoryCStr = sqlite3_column_text(readStatement, 4),
+                    let imageCStr = sqlite3_column_text(readStatement, 5)
                 else {
                     return [ProductModel]()
                 }
                 let title = String(cString: titleCStr)
                 let description = String(cString: descriptionCStr)
                 let category = String(cString: categoryCStr)
-                
+                let imageName = String(cString: imageCStr)
                 print("Product Details:\nId: \(id),\nTitle:\(title),\nDescription: \(description),\nPrice: \(price),\nR: \(price),\nCategory: \(category),\nRate: \(rate),\nCount: \(count)")
                 
-                let product = ProductModel(id: id, title: title, price: price, description: description, category: category, rate: rate, count: Double(count), imageUrl: nil, image: nil)
+                let product = ProductModel(id: id, title: title, price: price, description: description, category: category, rate: rate, count: Double(count), imageUrl: nil, image: nil,imageName: imageName)
                 products.append(product)
                 
             }

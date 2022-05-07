@@ -23,14 +23,15 @@ class ProductDetailViewController: UIViewController {
     //MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         creatCartButton()
         productCountLabel.text = "Count:\(product?.count ?? 0)"
         productDescriptionLabel.text = "Description:\(product?.description ?? "")"
         productCategoryLabel.text = "Category:\(product?.category ?? "")"
         productRatingLabel.text = "Rate:\(product?.rate ?? 0)"
         
-        if let image = product?.image {
-            self.productImage.image = image
+        if let image = product?.imageName {
+            self.productImage.image = getImageFromDD(imageName: image)
         } else {
             fetchImageFromNet(product?.imageUrl)
         }
@@ -47,7 +48,7 @@ class ProductDetailViewController: UIViewController {
                           let product = self.product else {
                               return
                           }
-                    self.saveImageToDocumentDirectory(name: "Image\(product.id)",
+                    self.saveImageToDocumentDirectory(name: "Image\(product.id).jpg",
                                                       image: image)
                     
                 } else {
@@ -221,18 +222,19 @@ class ProductDetailViewController: UIViewController {
                 guard
                     let titleCStr = sqlite3_column_text(readStatement, 1),
                     let descriptionCStr = sqlite3_column_text(readStatement, 3),
-                    let categoryCStr = sqlite3_column_text(readStatement, 4)
-                        //  let image = sqlite3_column_blob(readStatement, 5)
+                    let categoryCStr = sqlite3_column_text(readStatement, 4),
+                    let imageCStr = sqlite3_column_text(readStatement, 5)
+                        
                 else {
                     return [ProductModel]()
                 }
                 let title = String(cString: titleCStr)
                 let description = String(cString: descriptionCStr)
                 let category = String(cString: categoryCStr)
+                let imageName = String(cString: imageCStr)
+                print("Product Details:\nId: \(id),\nTitle:\(title),\nDescription: \(description),\nPrice: \(price),\nR: \(price),\nCategory: \(category),\nImage: \(imageName),\nRate: \(rate),\nCount: \(count)")
                 
-                print("Product Details:\nId: \(id),\nTitle:\(title),\nDescription: \(description),\nPrice: \(price),\nR: \(price),\nCategory: \(category),\nRate: \(rate),\nCount: \(count)")
-                
-                let product = ProductModel(id: id, title: title, price: price, description: description, category: category, rate: rate, count: Double(count), imageUrl: nil, image: nil)
+                let product = ProductModel(id: id, title: title, price: price, description: description, category: category, rate: rate, count: Double(count), imageUrl: nil, image: nil,imageName: imageName)
                 products.append(product)
                 
             } else {
@@ -307,5 +309,23 @@ extension ProductDetailViewController {
             print(error.localizedDescription)
             return nil
         }
+    }
+    
+    //MARK: Read Image from DD
+    private func getImageFromDD(imageName : String)-> UIImage? {
+        let fileManager = FileManager.default
+        // Here using getDirectoryPath method to get the Directory path
+        guard
+            let imagePath = self.getDDPathFor(imageName: imageName)?.path else {
+                print("Image Not Available in Documents Directory")
+                return UIImage.init(named: "placeholder.jpg")!
+            }
+        
+        if fileManager.fileExists(atPath: imagePath) {
+            return UIImage(contentsOfFile: imagePath)
+        } else {
+            return nil
+        }
+        
     }
 }

@@ -16,9 +16,6 @@
 		8BC090082804415A00CF1816 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC090062804415A00CF1816 /* Main.storyboard */; };
 		8BC0900A2804415D00CF1816 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC090092804415D00CF1816 /* Assets.xcassets */; };
 		8BC0900D2804415D00CF1816 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC0900B2804415D00CF1816 /* LaunchScreen.storyboard */; };
-		8BC090182804415E00CF1816 /* JSONDataIntoCollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC090172804415E00CF1816 /* JSONDataIntoCollectionViewTests.swift */; };
-		8BC090222804415E00CF1816 /* JSONDataIntoCollectionViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC090212804415E00CF1816 /* JSONDataIntoCollectionViewUITests.swift */; };
-		8BC090242804415E00CF1816 /* JSONDataIntoCollectionViewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC090232804415E00CF1816 /* JSONDataIntoCollectionViewUITestsLaunchTests.swift */; };
 		8BC090312804620C00CF1816 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC090302804620C00CF1816 /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,10 +49,7 @@
 		8BC0900C2804415D00CF1816 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC0900E2804415D00CF1816 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC090132804415E00CF1816 /* JSONDataIntoCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONDataIntoCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BC090172804415E00CF1816 /* JSONDataIntoCollectionViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataIntoCollectionViewTests.swift; sourceTree = "<group>"; };
 		8BC0901D2804415E00CF1816 /* JSONDataIntoCollectionViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONDataIntoCollectionViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BC090212804415E00CF1816 /* JSONDataIntoCollectionViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataIntoCollectionViewUITests.swift; sourceTree = "<group>"; };
-		8BC090232804415E00CF1816 /* JSONDataIntoCollectionViewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataIntoCollectionViewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8BC090302804620C00CF1816 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,8 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				8BC08FFF2804415A00CF1816 /* JSONDataIntoCollectionView */,
-				8BC090162804415E00CF1816 /* JSONDataIntCollectionViewTests */,
-				8BC090202804415E00CF1816 /* JSONDataIntoCollectionViewUITests */,
 				8BC08FFE2804415A00CF1816 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,23 +112,6 @@
 				8BC0900E2804415D00CF1816 /* Info.plist */,
 			);
 			path = JSONDataIntoCollectionView;
-			sourceTree = "<group>";
-		};
-		8BC090162804415E00CF1816 /* JSONDataIntCollectionViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				8BC090172804415E00CF1816 /* JSONDataIntoCollectionViewTests.swift */,
-			);
-			path = JSONDataIntCollectionViewTests;
-			sourceTree = "<group>";
-		};
-		8BC090202804415E00CF1816 /* JSONDataIntoCollectionViewUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8BC090232804415E00CF1816 /* JSONDataIntoCollectionViewUITestsLaunchTests.swift */,
-				8BC090212804415E00CF1816 /* JSONDataIntoCollectionViewUITests.swift */,
-			);
-			path = JSONDataIntoCollectionViewUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC090182804415E00CF1816 /* JSONDataIntoCollectionViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC090222804415E00CF1816 /* JSONDataIntoCollectionViewUITests.swift in Sources */,
-				8BC090242804415E00CF1816 /* JSONDataIntoCollectionViewUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
